@@ -26,8 +26,8 @@ static unsigned char readI2cReg(int i2cFileDesc, unsigned char regAddr);
 
 int main()
 {
-	printf("Drive display (assumes GPIO #61 and #44 are output and 1\n");
-	int i2cFileDesc = initI2cBus(I2CDRV_LINUX_BUS2, I2C_DEVICE_ADDRESS);
+	printf("Drive display (assumes GPIO #4 and #5 are output and 1\n");
+	int i2cFileDesc = initI2cBus(I2CDRV_LINUX_BUS1, I2C_DEVICE_ADDRESS);
 
 	writeI2cReg(i2cFileDesc, REG_DIRA, 0x00);
 	writeI2cReg(i2cFileDesc, REG_DIRB, 0x00);
