@@ -12,7 +12,7 @@
 #define I2CDRV_LINUX_BUS1 "/dev/i2c-1" // pins 17 and 18 uses i2c-1
 #define I2CDRV_LINUX_BUS2 "/dev/i2c-2"
 
-#define I2C_DEVICE_ADDRESS 0x20
+#define I2C_DEVICE_ADDRESS 0x70
 
 #define REG_DIRA 0x00
 #define REG_DIRB 0x01
@@ -23,12 +23,28 @@ static int initI2cBus(char* bus, int address);
 static void writeI2cReg(int i2cFileDesc, unsigned char regAddr, unsigned char value);
 static unsigned char readI2cReg(int i2cFileDesc, unsigned char regAddr);
 
+#define export "/sys/class/gpio/export"
+#define left_dir "/sys/class/gpio/gpio5/direction"
+#define right_dir "/sys/class/gpio/gpio4/direction"
+#define left_val "/sys/class/gpio/gpio5/value"
+#define right_val "/sys/class/gpio/gpio4/value"
+
+int left;
+int right;
+_Bool truth_val=true;
+static pthread_t display_id;
+static int initI2cBus(char* bus, int address);
+static void writeI2cReg(int i2cFileDesc, unsigned char regAddr, unsigned char value);
+static unsigned char readI2cReg(int i2cFileDesc, unsigned char regAddr);
 
 int main()
 {
 
 	return 0;
 }
+
+
+
 
 static int initI2cBus(char* bus, int address)
 {
