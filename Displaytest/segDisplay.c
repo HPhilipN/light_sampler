@@ -19,6 +19,8 @@
 #define REG_OUTA 0x14
 #define REG_OUTB 0x15
 
+
+
 static int initI2cBus(char* bus, int address);
 static void writeI2cReg(int i2cFileDesc, unsigned char regAddr, unsigned char value);
 static unsigned char readI2cReg(int i2cFileDesc, unsigned char regAddr);

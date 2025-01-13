@@ -6,7 +6,11 @@
 #include <sys/ioctl.h>
 #include <linux/i2c.h>
 #include <linux/i2c-dev.h>
-
+#include <string.h>
+#include <pthread.h>
+#include <potDriver.h>
+#include <segDisplay.h>
+#include <sort.h>
 
 #define I2CDRV_LINUX_BUS0 "/dev/i2c-0"
 #define I2CDRV_LINUX_BUS1 "/dev/i2c-1" // pins 17 and 18 uses i2c-1
