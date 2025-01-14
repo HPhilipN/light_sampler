@@ -5,7 +5,8 @@
 #define Yvoltage "/sys/bus/iio/devices/iio:device0/in_voltage3_raw"
 
 
-void readxy(double *x, double *y){
+void readxy(double *x, double *y)
+{
     FILE *fx = fopen(Xvoltage, "r");
 
     if(!fx)
@@ -22,7 +23,30 @@ void readxy(double *x, double *y){
         exit(-1);
     }
 
-    
+    int ReadX = fscanf(fx, "%lf", x);
+    if(ReadX <= 0)
+    {
+        prinft("ERROR: unable to read values from x voltage input file\n");
+        exit(-1);
+    }
+
+    int ReadY = fscanf(fy, "%lf", y);
+    if(ReadY <= 0)
+    {
+        printf("ERROR: unable to read values form y voltage input file\n");
+        exit(-1);
+    }
+
     fclose(fx);
     fclose(fy);
+}
+
+int readDir()
+{
+    double x = 0;
+    double y = 0;
+
+    readXY(&x, &y);
+
+    
 }
